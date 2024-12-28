@@ -1,13 +1,24 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { NavbarComponent } from "./shared/layouts/navbar/navbar.component";
+import { FooterComponent } from "./shared/layouts/footer/footer.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'],
+  imports: [NavbarComponent, FooterComponent, RouterOutlet]
 })
 export class AppComponent {
-  title = 'client';
+  showHeaderFooter: boolean = true;
+
+  constructor(private router: Router) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      this.showHeaderFooter = !(event.url === '/login' || event.url === '/register');
+    });
+  }
 }
