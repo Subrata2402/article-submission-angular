@@ -1,0 +1,44 @@
+nav {
+  .nav-wrapper {
+    background: var(--nav-bg-color); 
+    color: var(--nav-text-color);
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    height: 4rem;
+
+    .nav-logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+
+      a img {
+        height: 3rem;
+        width: 3rem;
+      }
+
+      .nav-title {
+        font-size: 2rem;
+        font-weight: 500;
+      }
+    }
+
+    .nav-links-container {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+
+      a {
+        color: var(--nav-text-color);
+        text-decoration: none;
+        font-size: 1.4rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+
+        &:hover {
+          background-color: var(--bt-hover-color);
+        }
+      }
+    }
+  }
+}

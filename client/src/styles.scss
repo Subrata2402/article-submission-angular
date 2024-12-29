@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 * {
   margin: 0;
@@ -6,10 +7,70 @@
   box-sizing: border-box;
 }
 
-$font-family: 'Roboto', sans-serif;
-$text-color: rgb(0, 0, 0);
-$background-color: rgb(255, 255, 255);
+:root {
+  --font-family: 'Roboto', sans-serif;
+  --text-color: rgb(0, 0, 0);
+  --bg-color: rgb(255, 255, 255);
+  --nav-bg-color: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(30, 30, 162, 1) 30%, rgba(20, 89, 192, 1) 62%, rgba(0, 212, 255, 1) 100%);
+  --nav-text-color: rgb(255, 255, 255);
+  --font-size: 16px;
+  --bt-hover-color: rgba(0, 0, 0, 0.1);
+  --table-hd-color: rgb(0, 0, 0, 0.7);
+  --footer-color: rgb(0, 0, 0, 0.8);
+}
+
+html {
+  font-size: var(--font-size);
+}
 
 body {
-  font-family: $font-family;
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+
+  app-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    gap: 1.4rem;
+
+    app-footer {
+      margin-top: auto;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+table {
+
+  min-width: 50rem;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem !important;
+  overflow: auto;
+  color: var(--nav-text-color);
+  font-size: 1.6rem;
+  font-weight: 500;
+
+  th {
+    background: var(--table-hd-color) !important;
+    color: var(--nav-text-color);
+  }
+
+  th,
+  td {
+    padding: 1rem !important;
+  }
+
+  tbody tr {
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: var(--bt-hover-color);
+    }
+  }
 }

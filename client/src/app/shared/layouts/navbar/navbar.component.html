@@ -1,1 +1,22 @@
-<p>navbar works!</p>
+<nav>
+  <div class="nav-wrapper">
+    <div class="nav-logo-container">
+      <a routerLink="/home">
+        <img src="assets/icons/article-logo.svg" alt="Article Logo">
+      </a>
+      <h3 class="nav-title">Article Submission System</h3>
+    </div>
+    @if(isLoggedIn) {
+    <div class="profile-container">
+      <button mat-icon-button>
+        <!-- <mat-icon>account_circle</mat-icon> -->
+      </button>
+    </div>
+    } @else {
+    <div class="nav-links-container">
+      <a mat-button routerLink="/login">Login</a>
+      <a mat-button routerLink="/register">Register</a>
+    </div>
+    }
+  </div>
+</nav>

@@ -1,0 +1,14 @@
+.table-container {
+  padding: 20px 60px;
+
+  table {
+    
+    td {
+      text-align: justify;
+    }
+
+    tr.mat-mdc-row:last-child {
+      min-width: 12rem !important;
+    }
+  }
+}

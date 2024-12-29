@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const postRoute = require('./routes/postRoutes');
-const getRoute = require('./routes/getRoutes');
+const postRoutes = require('./routes/post_routes');
+const getRoutes = require('./routes/get_routes');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
@@ -28,8 +28,8 @@ app.use(cors({
 }));
 
 app.use('/', express.static('public'));
-app.use('/', postRoute);
-app.use('/', getRoute);
+app.use('/api', postRoutes);
+app.use('/api', getRoutes);
 
 app.get('/', (req, res) => {
     res.send('Welcome to the Article Submission API');
